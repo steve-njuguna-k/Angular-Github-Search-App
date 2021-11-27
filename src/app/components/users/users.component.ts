@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 import { GitHubService } from 'src/app/services/git-hub.service';
 
 @Component({
@@ -8,10 +9,10 @@ import { GitHubService } from 'src/app/services/git-hub.service';
 })
 export class UsersComponent implements OnInit {
 
-  user: any;
   userRepos:any;
   username: string = ''
   loadState: boolean = false;
+  gitUser: User = new User("","", "",new Date());
 
   constructor(private service: GitHubService) { }
 
@@ -19,12 +20,10 @@ export class UsersComponent implements OnInit {
   }
 
   findUser () {
-    this.service.userSearch(this.username);
+    this.service.getUser(this.username);
 
-    this.service.getUser().subscribe((user:any) => {
-      console.log(user);
-      this.user = user;
-    });
+    this.gitUser=this.service.gitUser;
+    console.log(this.gitUser);
 
     this.service.getUserRepos().subscribe((repos:any) => {
       console.log(repos);
