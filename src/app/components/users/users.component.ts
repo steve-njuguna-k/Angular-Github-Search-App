@@ -10,12 +10,12 @@ export class UsersComponent implements OnInit {
 
   user: any;
   userRepos:any;
-  username: string = 'steve-njuguna-k'
+  username: string = ''
+  loadState: boolean = false;
 
   constructor(private service: GitHubService) { }
 
   ngOnInit(): void {
-    this.findUser();
   }
 
   findUser () {
@@ -29,7 +29,9 @@ export class UsersComponent implements OnInit {
     this.service.getUserRepos().subscribe(repos => {
       console.log(repos);
       this.userRepos = repos;
-    })
+    });
+
+    this.loadState = true;
   }
 
 }
