@@ -10,6 +10,7 @@ import { UsersComponent } from './components/users/users.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { FormsModule } from '@angular/forms';
 import { ReposComponent } from './components/repos/repos.component';
+import { DateCountPipe } from './pipes/date-count.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReposComponent } from './components/repos/repos.component';
     FooterComponent,
     UsersComponent,
     MainPageComponent,
-    ReposComponent
+    ReposComponent,
+    DateCountPipe
   ],
   imports: [
     BrowserModule,
