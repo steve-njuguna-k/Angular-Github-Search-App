@@ -63,16 +63,16 @@ a:hover{
     height: 50px;
     background-color: #fff;
     padding: 10px;
-    border-color: #000;
+    border-color: #0d1117;
 }
 
 .search {
     width: 100%;
-    margin-top: 65px;
+    margin-top: 75px;
 }
 
 .user-profile{
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .image{
@@ -103,8 +103,40 @@ a:hover{
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 10px;
     padding-top: 15px;
-    margin-top: 25px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.repo-card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #161b22;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.repos{
+    margin-top: 50px;
+}
+
+.repo-name{
+    font-size: 14px;
+}
+
+.card-footer {
+    padding-bottom: 0px;
+    background-color: rgba(0,0,0,.03);
+    border-top: 1px solid #161b22;
+}
+
+.size, .language, .updated{
+    font-size: 11px;
 }
 
 .footer {

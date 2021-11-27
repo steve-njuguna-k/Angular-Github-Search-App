@@ -9,6 +9,7 @@ import { GitHubService } from 'src/app/services/git-hub.service';
 export class UsersComponent implements OnInit {
 
   user: any;
+  userRepos:any;
   username: string = 'steve-njuguna-k'
 
   constructor(private service: GitHubService) { }
@@ -24,6 +25,11 @@ export class UsersComponent implements OnInit {
       console.log(user);
       this.user = user;
     });
+
+    this.service.getUserRepos().subscribe(repos => {
+      console.log(repos);
+      this.userRepos = repos;
+    })
   }
 
 }
