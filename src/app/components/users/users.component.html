@@ -1,7 +1,10 @@
 <div class="container">
     <div class="d-flex justify-content-center">
         <div class="search"> 
-            <input type="text" class="search-input" #query placeholder="Search Users"> 
+            <input type="text" class="search-input" name="search" [(ngModel)]='username' (keyup.enter)="findUser()" placeholder="Search all GIFS"> 
         </div>
     </div>
+</div>
+<div class="container">
+    <pre style="color: #fff;">{{ user | json }}</pre>
 </div>
