@@ -20,11 +20,17 @@ export class GitHubService {
   }
 
   getUser() {
-    return this.http.get("https://api.github.com/users/" + this.username);
+    return this.http.get("https://api.github.com/users/" + this.username + '?api_key=' + this.API_KEY);
   }
 
   getUserRepos() {
-    return this.http.get('https://api.github.com/users/' + this.username + '/repos');
+    return this.http.get('https://api.github.com/users/' + this.username + '/repos' + '?api_key=' + this.API_KEY);
+  }
+
+  searchrepos() {
+    return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName, ({
+      headers: new HttpHeaders({Authorization: `token ${this.API_KEY}`})
+    }))
   }
 
   userSearch(username:string) {

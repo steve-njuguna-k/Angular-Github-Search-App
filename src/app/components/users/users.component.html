@@ -24,7 +24,7 @@
                         <div class="col-md-4">
                             <div class="stats-card">
                                 <h2>{{ user.followers }}</h2>
-                                <p>Followers</p>
+                                <p>Follower(s)</p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -42,7 +42,7 @@
 <div class="container repos" *ngIf="loadState">
     <h2>Repositories</h2>
     <p class="text-muted">-----------------------------</p>
-    <p>Below is a list of repos found on this user's GitHub page</p>
+    <p>Below is a list of repos found on {{user.name}}'s GitHub page</p>
     <div class="row">
         <div class="col-md-4 d-flex justify-content-center" *ngFor="let repo of userRepos">
             <a [href] = " repo.html_url" target="_blank">
@@ -55,10 +55,10 @@
                     <div class="card-footer">
                         <div class="row">
                             <div class="col-8">
-                                <p class="text-muted language">{{repo.language}}</p>
+                                <p class="text-muted size">Size: {{repo.size}} kb</p> 
                             </div>
                             <div class="col">
-                               <p class="text-muted size">Size: {{repo.size}} kb</p> 
+                                <p class="text-muted language">{{repo.language}}</p>
                             </div>
                         </div>
                     </div>
