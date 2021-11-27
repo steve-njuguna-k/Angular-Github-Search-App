@@ -33,6 +33,30 @@ a:hover{
     margin-bottom: 30px;
 }
 
+.card{
+    background-color: #161b22;
+    border-color: rgb(240, 246, 252, 0.1);
+    border-radius: 10px;
+}
+
+.card-title{
+    margin-top: 10px;
+}
+
+.btn{
+    border-radius: 0px;
+}
+
+.btn-primary{
+    background-color: #58a6ff;
+    border-color: #58a6ff;
+}
+
+.btn-primary:hover{
+    background-color: #58a6ff;
+    border-color: #58a6ff;
+}
+
 .footer {
     margin-top: 60px;
     left: 0;
@@ -40,4 +64,4 @@ a:hover{
     width: 100%;
     color: white;
     text-align: center;
-  }
+}
