@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { UsersComponent } from './components/users/users.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { FormsModule } from '@angular/forms';
+import { ReposComponent } from './components/repos/repos.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     UsersComponent,
-    MainPageComponent
+    MainPageComponent,
+    ReposComponent
   ],
   imports: [
     BrowserModule,
