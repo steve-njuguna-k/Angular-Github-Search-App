@@ -57,6 +57,20 @@ a:hover{
     border-color: #58a6ff;
 }
 
+.search-input {
+    color: #000;
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    padding: 10px;
+    border-color: #000;
+}
+
+.search {
+    width: 100%;
+    margin-top: 65px;
+}
+
 .footer {
     margin-top: 60px;
     left: 0;
