@@ -28,16 +28,14 @@ export class GitHubService {
   }
 
   searchrepos() {
-    return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName, ({
-      headers: new HttpHeaders({Authorization: `token ${this.API_KEY}`})
-    }))
+    return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName + '&api_key=' + this.API_KEY)
   }
 
   userSearch(username:string) {
     this.username = username;
   }
 
-  UpdateRepo(repo:string) {
+  updateRepo(repo:string) {
     this.repoName = repo;
   }
 

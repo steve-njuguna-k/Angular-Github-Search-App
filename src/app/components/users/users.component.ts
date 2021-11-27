@@ -21,12 +21,12 @@ export class UsersComponent implements OnInit {
   findUser () {
     this.service.userSearch(this.username);
 
-    this.service.getUser().subscribe(user => {
+    this.service.getUser().subscribe((user:any) => {
       console.log(user);
       this.user = user;
     });
 
-    this.service.getUserRepos().subscribe(repos => {
+    this.service.getUserRepos().subscribe((repos:any) => {
       console.log(repos);
       this.userRepos = repos;
     });
