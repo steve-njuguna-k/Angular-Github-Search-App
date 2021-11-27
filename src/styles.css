@@ -27,3 +27,12 @@ a:hover{
 .nav-number{
     color: #58a6ff;
 }
+
+.footer {
+    margin-top: 60px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }
