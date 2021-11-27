@@ -28,6 +28,11 @@ a:hover{
     color: #58a6ff;
 }
 
+.options{
+    margin-top: 150px;
+    margin-bottom: 30px;
+}
+
 .footer {
     margin-top: 60px;
     left: 0;
