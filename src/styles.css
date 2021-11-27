@@ -71,6 +71,42 @@ a:hover{
     margin-top: 65px;
 }
 
+.user-profile{
+    margin-top: 20px;
+}
+
+.image{
+    border-radius: 200px;
+}
+
+.profile-card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+}
+
+.stats-card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    background-color: #161b22;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 10px;
+    padding-top: 15px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
 .footer {
     margin-top: 60px;
     left: 0;
