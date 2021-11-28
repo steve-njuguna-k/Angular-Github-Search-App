@@ -5,6 +5,7 @@ import { APIResponse } from '../interfaces/apiresponse';
 import { User } from '../models/user';
 import { Repo } from '../models/repo';
 import { RepoResponse } from '../interfaces/repo-response';
+import { RepoSearch } from '../models/repo-search';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class GitHubService {
 
   private API_KEY = environment.apikey;
 
+  repo: RepoSearch;
   gitUser: User;
   gitRepo: Repo;
   allRepos : any;
@@ -22,6 +24,7 @@ export class GitHubService {
     console.log('Service is now ready')
     this.gitUser = new User("","", "",new Date())
     this.gitRepo = new Repo("", "", false, new Date(), "", "")
+    this.repo = new RepoSearch([]);
   }
 
   getProfileData(username: string) {
@@ -78,6 +81,30 @@ export class GitHubService {
 
   updateFields(username: string) {
     this.username = username;
+  }
+
+  getRepo(query: string) {
+    return this.http.get(`https://api.github.com/search/repositories?q=${query}`);
+  }
+  repoSearch(query: HTMLInputElement) {
+    let repoApi = (`https://api.github.com/search/repositories?q=` + query.value);
+    console.log(repoApi, 'repoApi');
+    console.log(query.value, 'query.value');  // this is the search query
+
+    let promise = new Promise<void>((resolve, reject) => {
+      this.http.get<RepoSearchResponse>(repoApi).toPromise().then(response => {
+        this.repo.results = (response.items);
+        resolve();
+      },
+        error => {
+          this.repo = new RepoSearch([]);
+          reject(error);
+        });
+    });
+    return promise;
+  }
+  returnRepo(){
+    return this.repo;
   }
 
 }
