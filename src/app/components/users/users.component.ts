@@ -10,17 +10,32 @@ import { GitHubService } from 'src/app/services/git-hub.service';
 })
 export class UsersComponent implements OnInit {
 
-  repos:any[] = [];
-  username!: string;
+  username: string = '';
+  repos: any[] = [];
+  userProfile: any;
   loadState: boolean = false;
-  gitUser: User = new User("","", "",new Date());
 
-  constructor(private service: GitHubService) { }
-
-  ngOnInit(): void {
+  constructor(private service: GitHubService) {
   }
 
-  findUser (username: string) {
+  ngOnInit() {
+  }
+
+  searchUser(username: string) {
+    this.service.findUser(username);
+    this.service.getProfileData(username)
+      .subscribe((profile: any) => {
+        this.userProfile = profile;
+        console.log(this.userProfile)
+      }
+    );
+
+    this.service.getRepoData(username)
+      .subscribe((repos: any) => {
+        this.repos = repos;
+        console.log(this.repos)
+      }
+    );
 
     this.loadState = true;
   }

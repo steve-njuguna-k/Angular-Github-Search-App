@@ -19,10 +19,10 @@ export class MainPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.search(this.username);
+    this.defaultUser(this.username);
   }
 
-  search(username: string) {
+  defaultUser(username: string) {
     this.service.findUser(username);
     this.service.getProfileData(username)
       .subscribe((profile: any) => {
