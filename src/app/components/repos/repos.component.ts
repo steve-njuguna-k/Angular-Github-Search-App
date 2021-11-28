@@ -8,17 +8,24 @@ import { GitHubService } from 'src/app/services/git-hub.service';
 })
 export class ReposComponent implements OnInit {
 
-  repoItems: any[] = [];
-  repoName: string = "Akan-Name-Generator";
+  repos: any;
   loadState: boolean = false;
 
   constructor(private service: GitHubService) { }
 
   ngOnInit(): void {
-    this.findRepo();
   }
 
-  findRepo () {
+  repoSearch(searchTerm: HTMLInputElement) {
+    if (searchTerm.value==='') {
+      alert('Please enter a name');
+      searchTerm.focus();
+      return;
+    }
+    console.log(searchTerm.value);
+    this.service.repoSearch(searchTerm);
+    this.repos = this.service.returnRepo();
+
     this.loadState = true;
   }
 

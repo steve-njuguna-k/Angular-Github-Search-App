@@ -1,5 +1,5 @@
 export class RepoSearch {
     constructor(
-        results: any
+        public results: any
     ){}
 }

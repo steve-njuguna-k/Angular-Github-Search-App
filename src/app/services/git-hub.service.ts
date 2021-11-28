@@ -6,6 +6,7 @@ import { User } from '../models/user';
 import { Repo } from '../models/repo';
 import { RepoResponse } from '../interfaces/repo-response';
 import { RepoSearch } from '../models/repo-search';
+import { RepoSearchResponse } from '../interfaces/repo-search-response';
 
 @Injectable({
   providedIn: 'root'
