@@ -1,7 +1,7 @@
 <div class="container">
     <div class="d-flex justify-content-center">
         <div class="search"> 
-            <input type="text" class="search-input" name="search" [(ngModel)]='username' (keyup.enter)="findUser()" placeholder="Search Username"> 
+            <input type="text" class="search-input" name="search" [(ngModel)]='username' (keyup.enter)="findUser(username)" placeholder="Search Username"> 
         </div>
     </div>
 </div>
@@ -44,7 +44,7 @@
     <p class="text-muted">-----------------------------</p>
     <p>Below is a list of repos found on {{gitUser.name}}'s GitHub page</p>
     <div class="row">
-        <div class="col-md-4 d-flex justify-content-center" *ngFor="let repo of userRepos">
+        <div class="col-md-4 d-flex justify-content-center" *ngFor="let repo of repos">
             <a [href] = " repo.html_url" target="_blank">
                 <div class="repo-card" style="width: 23rem; height: 250px;">
                     <div class="card-body">

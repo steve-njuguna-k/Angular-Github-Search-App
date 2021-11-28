@@ -19,13 +19,6 @@ export class ReposComponent implements OnInit {
   }
 
   findRepo () {
-    this.service.updateRepo(this.repoName);
-    this.service.searchrepos()
-      .subscribe((response: any) => {
-        this.repoItems = response;
-        console.log(this.repoItems);
-      }
-    );
     this.loadState = true;
   }
 

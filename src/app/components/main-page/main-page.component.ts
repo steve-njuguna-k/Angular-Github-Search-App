@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Repo } from 'src/app/models/repo';
 import { User } from 'src/app/models/user';
 import { GitHubService } from 'src/app/services/git-hub.service';
 
@@ -9,28 +10,33 @@ import { GitHubService } from 'src/app/services/git-hub.service';
 })
 export class MainPageComponent implements OnInit {
 
-  user: any;
-  userRepos:any;
-  username: string = 'steve-njuguna-k'
+  username: string = 'steve-njuguna-k';
+  repos: any[] = [];
+  userProfile: any;
   loadState: boolean = false;
-  gitUser: User = new User("","", "",new Date());
 
-  constructor(private service: GitHubService) { }
-
-  ngOnInit(): void {
-    this.findUser();
+  constructor(private service: GitHubService) {
   }
 
-  findUser () {
-    this.service.getUser(this.username);
+  ngOnInit() {
+    this.search(this.username);
+  }
 
-    this.gitUser=this.service.gitUser;
-    console.log(this.gitUser);
+  search(username: string) {
+    this.service.findUser(username);
+    this.service.getProfileData(username)
+      .subscribe((profile: any) => {
+        this.userProfile = profile;
+        console.log(this.userProfile)
+      }
+    );
 
-    this.service.getUserRepos().subscribe((repos:any) => {
-      console.log(repos);
-      this.userRepos = repos;
-    });
+    this.service.getRepoData(username)
+      .subscribe((repos: any) => {
+        this.repos = repos;
+        console.log(this.repos)
+      }
+    );
 
     this.loadState = true;
   }

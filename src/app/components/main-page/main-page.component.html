@@ -3,26 +3,26 @@
         <div class="col d-flex justify-content-center text-center">
             <div class="profile-card" style="width: 40rem;">
                 <div class="card-body">
-                    <img class="image" [src] = "gitUser.avatar_url" width="200" height="200">
-                    <h2 class="card-title">{{ gitUser.name }}</h2>
-                    <h6 class="card-subtitle mb-2 text-muted">@{{ gitUser.login }}</h6>
-                    <p> Joined {{ gitUser.created_at | date }} </p>
+                    <img class="image" [src] = "userProfile.avatar_url" width="200" height="200">
+                    <h2 class="card-title">{{ userProfile.name }}</h2>
+                    <h6 class="card-subtitle mb-2 text-muted">@{{ userProfile.login }}</h6>
+                    <p> Joined {{ userProfile.created_at | date }} </p>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="stats-card">
-                                <h2>{{ gitUser.public_repos }}</h2>
+                                <h2>{{ userProfile.public_repos }}</h2>
                                 <p>Repositories</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="stats-card">
-                                <h2>{{ gitUser.followers }}</h2>
+                                <h2>{{ userProfile.followers }}</h2>
                                 <p>Follower(s)</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="stats-card">
-                                <h2>{{ gitUser.following }}</h2>
+                                <h2>{{ userProfile.following }}</h2>
                                 <p>Following</p>
                             </div>
                         </div>
@@ -35,9 +35,9 @@
 <div class="container repos" *ngIf="loadState">
     <h2>Repositories</h2>
     <p class="text-muted">-----------------------------</p>
-    <p>Below is a list of repos found on {{gitUser.name}}'s GitHub page</p>
+    <p>Below is a list of repos found on {{userProfile.name}}'s GitHub page</p>
     <div class="row">
-        <div class="col-md-4 d-flex justify-content-center" *ngFor="let repo of userRepos">
+        <div class="col-md-4 d-flex justify-content-center" *ngFor="let repo of repos">
             <a [href] = " repo.html_url" target="_blank">
                 <div class="repo-card" style="width: 23rem; height: 250px;">
                     <div class="card-body">
@@ -47,11 +47,11 @@
                     </div>
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-4">
                                 <p class="text-muted size">Size: {{repo.size}} kb</p> 
                             </div>
                             <div class="col">
-                                <p class="text-muted language">{{repo.language}}</p>
+                                <p class="text-muted language">Primary Language: {{repo.language}}</p>
                             </div>
                         </div>
                     </div>
