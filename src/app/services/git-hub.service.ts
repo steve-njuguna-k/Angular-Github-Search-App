@@ -12,11 +12,10 @@ import { RepoResponse } from '../interfaces/repo-response';
 export class GitHubService {
 
   private API_KEY = environment.apikey;
-  private URL = environment.url;
 
   gitUser: User;
   gitRepo: Repo;
-
+  allRepos : any;
   username!: string;
 
   constructor(private http: HttpClient) { 
@@ -41,37 +40,40 @@ export class GitHubService {
     let promise = new Promise<void>((resolve, reject) => {
       this.http.get<APIResponse>(`https://api.github.com/users/${username}?`)
         .toPromise().then(response => {
-          this.gitUser.name = response.name
-          this.gitUser.avatar_url = response.avatar_url
-          this.gitUser.login = response.login
-          this.gitUser.created_at = response.created_at
-          this.gitUser.public_repos = response.public_repos
-          this.gitUser.followers = response.followers
-          this.gitUser.following = response.following
+          this.gitUser.name = response.name,
+          this.gitUser.avatar_url = response.avatar_url,
+          this.gitUser.login = response.login,
+          this.gitUser.created_at = response.created_at,
+          this.gitUser.public_repos = response.public_repos,
+          this.gitUser.followers = response.followers,
+          this.gitUser.following = response.following,
           resolve()
         },
           error => {
-            console.log(error);
             confirm(`Sorry we can't find ${username}. The user does not exist!`);
+            window.location.reload();
             reject(error);
+            console.log(error);
           })
 
       this.http.get<RepoResponse>(`https://api.github.com/users/${username}/repos`)
         .toPromise().then(response => {
-          this.gitRepo.name = response.name
-          this.gitRepo.description = response.description
-          this.gitRepo.updated_at = response.updated_at
-          this.gitRepo.size = response.size
-          this.gitRepo.language = response.language
+          this.gitRepo.name = response.name,
+          this.gitRepo.description = response.description,
+          this.gitRepo.fork = response.fork,
+          this.gitRepo.updated_at = response.updated_at,
+          this.gitRepo.size = response.size,
+          this.gitRepo.language = response.language,
           resolve()
         },
           error => {
             reject(error)
-          })
-
-    })
+            console.log(error);
+          }
+        )
+      }
+    )
     return promise;
-
   }
 
   updateFields(username: string) {
