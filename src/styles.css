@@ -143,6 +143,10 @@ a:hover{
     font-size: 11px;
 }
 
+.value{
+    color: #fff;
+}
+
 .footer {
     margin-top: 60px;
     left: 0;

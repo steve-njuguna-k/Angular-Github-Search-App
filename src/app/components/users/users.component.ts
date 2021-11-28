@@ -21,16 +21,21 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchUser(username: string) {
-    this.service.findUser(username);
-    this.service.getProfileData(username)
+  searchUser(username: HTMLInputElement) {
+    if (username.value==='') {
+      alert('Please Enter A Username');
+      username.focus();
+      return;
+    }
+    this.service.findUser(username.value);
+    this.service.getProfileData(username.value)
       .subscribe((profile: any) => {
         this.userProfile = profile;
         console.log(this.userProfile)
       }
     );
 
-    this.service.getRepoData(username)
+    this.service.getRepoData(username.value)
       .subscribe((repos: any) => {
         this.repos = repos;
         console.log(this.repos)

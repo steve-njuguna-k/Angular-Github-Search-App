@@ -1,7 +1,7 @@
 <div class="container">
     <div class="d-flex justify-content-center">
         <div class="search"> 
-            <input type="text" class="search-input" name="search" [(ngModel)]='username' (keyup.enter)="searchUser(username)" placeholder="Search Username"> 
+            <input type="text" class="search-input" name="search" #username (keyup.enter)="searchUser(username)" placeholder="Search Username"> 
         </div>
     </div>
 </div>
@@ -54,11 +54,11 @@
                     </div>
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-4">
-                                <p class="text-muted size">Size: {{repo.size}} kb</p> 
+                            <div class="col-5">
+                                <p class="text-muted size">Size: <span class="value">{{repo.size}} kb</span></p> 
                             </div>
                             <div class="col">
-                                <p class="text-muted language">Language Used: {{repo.language}}</p>
+                                <p class="text-muted language">Language: <span class="value">{{repo.language}}</span></p>
                             </div>
                         </div>
                     </div>

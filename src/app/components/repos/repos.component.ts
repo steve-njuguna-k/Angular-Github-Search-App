@@ -18,7 +18,7 @@ export class ReposComponent implements OnInit {
 
   repoSearch(searchTerm: HTMLInputElement) {
     if (searchTerm.value==='') {
-      alert('Please enter a name');
+      alert('Please Enter A Repository Name');
       searchTerm.focus();
       return;
     }

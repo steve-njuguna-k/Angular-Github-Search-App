@@ -6,7 +6,7 @@
                     <img class="image" [src] = "userProfile.avatar_url" width="200" height="200">
                     <h2 class="card-title">{{ userProfile.name }}</h2>
                     <h6 class="card-subtitle mb-2 text-muted">@{{ userProfile.login }}</h6>
-                    <p> Joined {{ userProfile.created_at | date }} </p>
+                    <p> Joined {{ userProfile.created_at | date }} ({{ userProfile.created_at | dateCount }} days ago) </p>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="stats-card">
@@ -47,11 +47,11 @@
                     </div>
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-4">
-                                <p class="text-muted size">Size: {{repo.size}} kb</p> 
+                            <div class="col-5">
+                                <p class="text-muted size">Size: <span class="value">{{repo.size}} kb</span></p> 
                             </div>
                             <div class="col">
-                                <p class="text-muted language">Language Used: {{repo.language}}</p>
+                                <p class="text-muted language">Language: <span class="value">{{repo.language}}</span></p>
                             </div>
                         </div>
                     </div>
