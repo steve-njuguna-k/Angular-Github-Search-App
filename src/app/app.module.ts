@@ -11,6 +11,7 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { FormsModule } from '@angular/forms';
 import { ReposComponent } from './components/repos/repos.component';
 import { DateCountPipe } from './pipes/date-count.pipe';
+import { RepoHighlightDirective } from './directives/repo-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DateCountPipe } from './pipes/date-count.pipe';
     UsersComponent,
     MainPageComponent,
     ReposComponent,
-    DateCountPipe
+    DateCountPipe,
+    RepoHighlightDirective
   ],
   imports: [
     BrowserModule,
