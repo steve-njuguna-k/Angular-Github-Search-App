@@ -38,7 +38,7 @@ https://github.com/steve-njuguna-k/Angular-Github-Search-App.git
 ```
 2. cd into Angular-Github-Search-App
 ```
-cd Angular-GIPHY-Clone
+cd Angular-Github-Search-App
 ```
 3. Run npm install
 ```
