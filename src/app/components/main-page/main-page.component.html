@@ -34,9 +34,9 @@
     </div>
 </div>
 <div class="container repos" *ngIf="loadState">
-    <h2>Repositories</h2>
-    <p class="text-muted">-----------------------------</p>
-    <p>Below is a list of repos found on {{userProfile.name}}'s GitHub page</p>
+    <h2 class="text-center">Repositories</h2>
+    <hr class="hr">
+    <p class="text-center">Below is a list of repos found on {{userProfile.name}}'s GitHub page</p>
     <div class="row">
         <div class="col-md-4 d-flex justify-content-center" *ngFor="let repo of repos">
             <a [href] = " repo.html_url" target="_blank">

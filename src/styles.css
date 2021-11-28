@@ -151,6 +151,11 @@ a:hover{
     font-size: 12px;
 }
 
+.hr{
+    background-color: rgba(240,246,252,0.1);
+    width: 5%;
+}
+
 .footer {
     margin-top: 60px;
     left: 0;
