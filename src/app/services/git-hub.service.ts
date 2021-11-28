@@ -25,27 +25,28 @@ export class GitHubService {
   getUser(user:string) {
     let url = this.URL + user + '?api_key=' + this.API_KEY;
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<APIResponse>(url).toPromise().then(response=>{
-        this.gitUser.name = response.name;
-        this.gitUser.avatar_url = response.avatar_url;
-        this.gitUser.login=response.login;
-        this.gitUser.created_at=response.created_at;
-        this.gitUser.public_repos=response.public_repos;
-        this.gitUser.followers=response.followers;
-        this.gitUser.following=response.following;
+      this.http.get<APIResponse>(url).
+        toPromise().then(response=>{
+          this.gitUser.name = response.name;
+          this.gitUser.avatar_url = response.avatar_url;
+          this.gitUser.login=response.login;
+          this.gitUser.created_at=response.created_at;
+          this.gitUser.public_repos=response.public_repos;
+          this.gitUser.followers=response.followers;
+          this.gitUser.following=response.following;
         console.log(response);
         resolve("")
-       },
+      },
       
-       error=>{
+      error=>{
         console.log(error);
-        confirm(`Sorry cant find ${user}`);
+        confirm(`Sorry we cant find ${user}. Such user does not exist!`);
         // window.location.reload();
         reject(error);
-       })
-     })
+      })
+    })
     
-     return promise;
+    return promise;
   };
 
   getUserRepos() {
